@@ -1,0 +1,12 @@
+{
+  "id": "helloagents",
+  "name": "HelloAgents",
+  "description": "A friendly conversational agent that greets users in multiple languages.",
+  "url": "agents/helloagents/index.html",
+  "tags": [
+    "greeting",
+    "language",
+    "multilingual",
+    "demo"
+  ]
+}

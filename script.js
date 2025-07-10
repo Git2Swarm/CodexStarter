@@ -30,8 +30,9 @@ function displayAgents(agents) {
 async function registerAgent() {
   const name = document.getElementById('agent-name').value;
   const description = document.getElementById('agent-description').value;
-  const endpoint = document.getElementById('agent-endpoint').value;
-  const data = { name, description, endpoint };
+  const endpoint_url = document.getElementById('agent-endpoint').value;
+  const id = name.toLowerCase().replace(/\s+/g, '-');
+  const data = { id, name, description, endpoint_url };
   const res = await fetch(`${API_BASE_URL}/agents`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

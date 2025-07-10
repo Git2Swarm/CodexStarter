@@ -1,0 +1,15 @@
+id: helloagents
+name: HelloAgents
+description: A friendly conversational agent that greets users in multiple languages.
+endpoint_url: http://localhost:3000/a2a/agents/helloagents/query
+auth: none
+input_spec:
+  type: text
+  format: string
+output_spec:
+  type: text
+  format: string
+tags: [greeting, language, multilingual, demo]
+author: helloagents.ai
+version: 1.0
+category: conversational
