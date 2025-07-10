@@ -2,10 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello Codex</title>
+    <title>Agent Marketplace</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello Codex</h1>
-    <p>Welcome to your new website!</p>
+<header>
+    <h1>AI Agent Marketplace</h1>
+</header>
+<main>
+    <section class="search-section">
+        <input type="text" id="search" placeholder="Search agents...">
+        <button onclick="searchAgents()">Search</button>
+    </section>
+
+    <div id="results"></div>
+
+    <h2>Register New Agent</h2>
+    <form onsubmit="event.preventDefault(); registerAgent();">
+        <input type="text" id="agent-name" placeholder="Agent Name" required>
+        <input type="text" id="agent-description" placeholder="Description" required>
+        <input type="url" id="agent-endpoint" placeholder="Agent API Endpoint" required>
+        <button type="submit">Register</button>
+    </form>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
-# Hello Codex Website
+# AI Agent Marketplace Landing Page
 
-This repository contains a simple "Hello Codex" web page. To view it locally, open `index.html` in a browser.
+This project now contains a simple landing page for an AI agent marketplace. It allows users to search registered agents, onboard new agents and initiate queries via an API compatible with the A2A agent protocol. Stripe is expected to be used for payments when buying or using an agent.
+
+Open `index.html` in a browser to try it locally.
 
 ## Deploying to GitHub Pages
 1. Create a new GitHub repository and push the contents of this directory.
