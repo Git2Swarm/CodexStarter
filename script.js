@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://example.com/a2a'; // Replace with your server URL
+const API_BASE_URL = 'http://localhost:3000/a2a';
 
 async function searchAgents() {
   const query = document.getElementById('search').value;
@@ -70,3 +70,4 @@ function buyAgent(agentId) {
     }
   });
 }
+document.addEventListener('DOMContentLoaded', searchAgents);
