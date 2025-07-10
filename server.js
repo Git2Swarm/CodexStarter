@@ -1,19 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const yaml = require('js-yaml');
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
+// Load agent card from YAML
+const agentCard = yaml.load(fs.readFileSync('./agent_card.yaml', 'utf8'));
 // In-memory agent registry
-const agents = [
-  {
-    id: 'helloworld',
-    name: 'Hello World Agent',
-    description: 'Simple agent that responds with a greeting.',
-    endpoint: 'http://localhost:3000/helloworld'
-  }
-];
+const agents = [agentCard];
 
 // List agents, optional search
 app.get('/a2a/agents', (req, res) => {
@@ -22,12 +19,11 @@ app.get('/a2a/agents', (req, res) => {
   res.json(results);
 });
 
-// Register a new agent
+// Register a new agent using A2A card fields
 app.post('/a2a/agents', (req, res) => {
-  const { name, description, endpoint } = req.body;
-  if (!name || !endpoint) return res.status(400).json({ error: 'Missing fields' });
-  const id = name.toLowerCase().replace(/\s+/g, '-');
-  const agent = { id, name, description, endpoint };
+  const { id, name, description, endpoint_url } = req.body;
+  if (!id || !endpoint_url) return res.status(400).json({ error: 'Missing fields' });
+  const agent = { id, name, description, endpoint_url };
   agents.push(agent);
   res.status(201).json(agent);
 });
@@ -41,9 +37,11 @@ app.post('/a2a/agents/:id/query', (req, res) => {
   res.json({ answer: `Hello world! You asked: ${query}` });
 });
 
-// Simple hello world endpoint
-app.get('/helloworld', (req, res) => {
-  res.json({ message: 'Hello world!' });
+// Provide agent card
+app.get('/a2a/agents/:id/card', (req, res) => {
+  const agent = agents.find(a => a.id === req.params.id);
+  if (!agent) return res.status(404).json({ error: 'Agent not found' });
+  res.json(agent);
 });
 
 const port = process.env.PORT || 3000;

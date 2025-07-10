@@ -1,0 +1,33 @@
+{
+  "id": "helloagents",
+  "qa": [
+    {
+      "question": "What is your purpose?",
+      "response": "Hello world! You asked: What is your purpose?"
+    },
+    {
+      "question": "What types of users benefit most from using you?",
+      "response": "Hello world! You asked: What types of users benefit most from using you?"
+    },
+    {
+      "question": "Show an example greeting in English.",
+      "response": "Hello world! You asked: Show an example greeting in English."
+    },
+    {
+      "question": "Show an example greeting in Spanish.",
+      "response": "Hello world! You asked: Show an example greeting in Spanish."
+    },
+    {
+      "question": "What are your limitations?",
+      "response": "Hello world! You asked: What are your limitations?"
+    },
+    {
+      "question": "What happens if I send an invalid input?",
+      "response": "Hello world! You asked: What happens if I send an invalid input?"
+    },
+    {
+      "question": "How should a developer integrate you?",
+      "response": "Hello world! You asked: How should a developer integrate you?"
+    }
+  ]
+}
